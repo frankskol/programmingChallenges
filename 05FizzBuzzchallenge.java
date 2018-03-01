@@ -19,5 +19,8 @@ public class 05FizzBuzz{
       }
       number++;
     }
+    int i, j = 1;
+    j = (i+1)++;
+    System.out.println(j);
   }
 }

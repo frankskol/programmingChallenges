@@ -6,7 +6,7 @@ def CaesarCipherDecrypt(textinput, shift):
            continue
         if ch.isalpha():
             stayInAlphabet = ord(ch) - shift 
-        if stayInAlphabet < ord('a'):
+        if stayInAlphabet < ord('A'):
             stayInAlphabet += 26
         finalLetter = chr(stayInAlphabet)
         cipherText += finalLetter
