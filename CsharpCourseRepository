@@ -1,0 +1,503 @@
+int myInt = 2147483647;
+long myLong= myInt;
+-
+double myDouble = 1234.6;
+int myInt;
+// Cast double to int by placing the type modifier ahead of the type to be converted
+// in parentheses
+myInt = (int)myDouble;
+-
+double myDouble = 1234.6;
+int myInt;
+// Cast double to int by using the Convert class and the ToInt32() method.
+// This converts the double value to a 32-bit signed integer
+myInt = Convert.ToInt32(myDouble);
+-
+// TryParse() example
+bool result = Int32.TryParse(value, out number);
+
+// Parse() example
+int number = Int32.Parse(value);
+-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Mod1_Lab1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // create variables of different data types
+            // initialize with a "default" value
+            string firstName = "";
+            string lastName = "";
+            int age = 0;
+            string street = "";
+            string city = "";
+            string country = "";
+            DateTime birthDate;
+
+            // Assign some values
+            firstName = "Tom";
+            lastName = "Thumb";
+            age = 18;
+            street = "123 Fourth Street";
+            city = "Anytown";
+            country = "MyCountry";
+            birthDate = new DateTime(1932, 6, 1);
+
+            // output to the console window
+
+            // use simple output with just variable name
+            Console.WriteLine(firstName);
+            Console.WriteLine(lastName);
+
+            // use placeholder style
+            Console.WriteLine("{0} years old.", age);
+
+            // use string concatenation
+            Console.WriteLine(street + ", " + city + ", " + country);
+
+            // use string interpolation
+            Console.WriteLine($"Born on {birthDate}");
+
+        }
+    }
+}
+-
+//if statement
+
+string response = "Yes";
+if (response == "Yes")
+{
+    // statements that will execute if the value of the response variable is
+    // yes, will be placed here.
+}
+-
+//if else Statements
+
+string response;
+if (response == "connection_failed")
+{
+    // Block of code executes if the value of the response variable is "connection_failed".
+}
+else
+{
+    // Block of code executes if the value of the response variable is not "connection_failed".
+}
+-
+//else if Statements
+
+string response;
+if (response == "connection_failed")
+{
+    // Block of code executes if the value of the response variable is "connection_failed".
+}
+else if (response == "connection_error")
+{
+    // Block of code executes if the value of the response variable is "connection_error".
+}
+else
+{
+    // Block of code executes if the value of the response variable is neither above responses.
+}
+-
+//switch Statement
+
+string response;
+switch (response)
+{
+   case "connection_failed":
+      // Block of code executes if the value of response is "connection_failed".
+      break;
+   case "connection_success":
+      // Block of code executes if the value of response is "connection_success".
+      break;
+   case "connection_error":
+      // Block of code executes if the value of response is "connection_error".
+      break;
+   default:
+      // Block executes if none of the above conditions are met.
+      break;
+}
+-
+string response;
+switch (response)
+{
+   case "connection_success":
+      // Block of code executes if the value of response is "connection_success".
+      break;
+   case "connection_failed":
+   case "connection_error":
+      // Block of code executes if the value of response is "connection_failed"
+      // or "connection_error;
+      break;
+   default:
+      // Block executes if none of the above conditions are met.
+      break;
+}
+-
+for ([initializers]; [condition]; [iterator])
+{
+   // code to repeat goes here
+}
+-
+//for Loop
+for (int i = 0 ; i < 10; i++)
+{
+    // Code to execute.
+}
+-
+//foreach Loop
+
+string[] names = new string[10];
+
+// Process each name in the array.
+foreach (string name in names)
+{
+    // Code to execute.
+}
+-
+//while Loop
+
+string response = PromptUser();
+while (response != "Quit")
+{
+    // Process the data.
+    response = PromptUser();
+}
+-
+//do Loop
+
+do
+{
+    // Process the data.
+    response = PromptUser();
+} while (response != "Quit");
+-
+// create an if decision block
+// use this if block to check for an even number
+
+
+// Request user input with ReadLine()
+Console.WriteLine("Please enter an integer value and press Enter.");
+
+// Assign the entered value to the variable input
+// convert input to integer before using
+int input = Int32.Parse( Console.ReadLine());
+
+// Check to see if the number is even.
+// Here we use the simple task of checking for a remainder when dividing by 2
+// The (%) or modulus operator returns the remainder of integer devision.
+// If the remainder is 0, then the value is able to be divided by 2 with
+// no remainder, which means it is an even number.
+if(input % 2 == 0)
+{
+    Console.WriteLine("The entered number was an even number.");
+}
+else  // the remainder was not 0 so the value entere is an odd number.
+{
+    Console.WriteLine("The entered number was not an even number.");
+}
+-
+// Create a switch block
+
+Console.WriteLine("Coffee sizes: 1=small 2=medium 3=large");
+Console.Write("Please enter your selection: ");
+string str = Console.ReadLine();
+int cost = 0;
+
+switch (str)
+{
+    case "1":
+    case "small":
+        cost += 25;
+        break;
+    case "2":
+    case "medium":
+        cost += 50;
+        break;
+    case "3":
+    case "large":
+        cost += 75;
+        break;
+    default:
+        Console.WriteLine("Invalid selection. Please select 1, 2, or 3.");
+        break;
+}
+if (cost != 0)
+{
+  Console.WriteLine("Please insert {0} cents.", cost);
+}
+Console.WriteLine("Thank you for your business.");
+-
+// Create a simple for loop that displays the values of the counter
+// The WriteLine method here demonstrates the use of string interpolation in C#
+// as a way of outputting literal string values with variable values.
+// It is the recommended way to deal with this method of string output
+for(int counter = 0; counter < 10; counter++)
+{
+    Console.WriteLine($"Counter is at: {counter}");
+}
+-
+// Create a nested for loop
+// This sample uses a nested loop to find prime numbers
+// less than 100
+
+int outer;
+int inner;
+
+for (outer = 2; outer < 100; outer++)
+{
+   for (inner = 2; inner <= (outer / inner); inner++)
+        if ((outer % inner) == 0) break; // if factor found, not prime
+        if (inner > (outer / inner))
+              Console.WriteLine("{0} is prime", outer);
+            }
+-
+// Create a while loop
+// We start with n = 1
+// The condition check for the while, tests if n is less than 6, if so, the loop body code executes
+// inside the loop, we output the value of n and then increment it by 1
+// Once n = 6, the loop stops
+// Pay attention to the output to see what the last value is to ensure you understand
+// how the evaluation of the condition is done and how the while loop executes
+int n = 1;
+while (n < 6)
+{
+    Console.WriteLine($"Current value of n is {n}");
+    n++;
+}
+-
+// Create a do loop, also known as a do..while loop
+// Note that with the do loop, the loop will run at least once regardless of the value of x
+// which is due to the condition not being checked until the end.
+// Experiment with this by setting x to a value greater than 5 and run the code
+int x = 0;
+do
+{
+    Console.WriteLine(x);
+    x++;
+} while (x < 5);
+-
+public Boolean StartService(string serviceName)
+{
+   // code to start the service
+}
+-
+int upTime = 2000;
+bool shutdownAutomatically = true;
+StartService(upTime, shutdownAutomatically);
+
+// StartService method.
+void StartService(int upTime, bool shutdownAutomatically)
+{
+   // Perform some processing here.
+}
+-
+ReturnMultiOut(out first, out sValue);
+Console.WriteLine($"{first.ToString}, {sValue}");
+
+static void ReturnMultiOut(out int i, out string s)
+{
+    i = 25;
+    s = "using out";
+}
+-
+// Using ref requires that the variables be initialized first
+sValue = "";
+int first = 0;
+ReturnMultiRef(ref first, ref sValue);
+Console.WriteLine($"{first.ToString()}, {sValue}");
+
+ void ReturnMultiRef(ref int i, ref string s)
+ {
+        i = 50;
+        s = "using ref";
+ }
+ -
+ void StopService()
+{
+   // This method accepts no arguments
+}
+
+void StopService(string serviceName)
+{
+   // This method overload accepts a single string argument
+}
+
+void StopService(int serviceId)
+{
+   // This method overload accepts a single integer argument
+}
+-
+void StopService(string serviceName, int seconds)
+{
+   // This method overload accepts a string argument
+   // and an integer argument
+}
+
+void StopService(int seconds, string serviceName)
+{
+   // This method overload accepts an integer argument
+   // and a string argument.  It appears different than
+   // the preceding method because the arguments are
+   // passed in differently, however, it is still not
+   // a valid overload
+}
+
+bool StopService(string serviceName, int seconds)
+{
+   // This method overload accepts a string argument
+   // and an integer argument but returns a boolean
+   // result.  The difference between this method and
+   // the others is the return type.  This is still not
+   // a valid overload based on overloading rules.
+}
+-
+void StopService(bool forceStop, string serviceName = null, int serviceId =1)
+{
+   // code here that will stop the service
+}
+-
+try
+{
+    // Try block.
+}
+catch (FileNotFoundException fnfEx)
+{
+    // Catch block 1.
+}
+catch (Exception e)
+{
+    // Catch block n.
+}
+-
+try
+{
+}
+catch (NullReferenceException ex)
+{
+    // Catch all NullReferenceException exceptions.
+}
+catch (Exception ex)
+{
+    // Catch all other exceptions.
+}
+finally
+{
+   // Code that always runs to close files or release resources.
+}
+-
+try
+{
+   // Code that could cause an exception
+}
+catch (NullReferenceException ex)
+{
+    // Catch all NullReferenceException exceptions.
+}
+catch (Exception ex)
+{
+    // Attempt to handle the exception
+    ...
+    // If this catch handler cannot resolve the exception,
+    // throw it to the calling code
+    throw;
+}
+-
+var ex = new NullReferenceException("The 'Name' parameter is null.");
+throw ex;
+-
+// Sum() method that takes two integer arguments and sums them
+// The method returns no value which is why we use void
+// We also need to use static in the method signature because Main is static
+// and you cannot call a non-static method from a static method
+static void Sum(int first, int second)
+{
+    int sum = first + second;
+    Console.WriteLine($"The sum of {first} and {second} is: {sum}");
+}
+-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Mod3_Lab1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Sum(20, 40);
+        }
+
+        // Sum() method that takes two integer arguments and sums them
+        // The method returns no value which is why we use void
+        // We also need to use static in the method signature because Main is static
+        // and you cannot call a non-static method from a static method
+        static void Sum(int first, int second)
+        {
+            int sum = first + second;
+            Console.WriteLine($"The sum of {first} and {second} is: {sum}");
+        }
+    }
+}
+-
+// Sum() method that takes two integer arguments and sums them
+        // The method returns an integer value which is why we use int in the signature
+        // We also need to use static in the method signature because Main is static
+        // and you cannot call a non-static method from a static method
+        static int Sum(int first, int second)
+        {
+            int sum = first + second;
+            return sum;
+        }
+-
+static void Main(string[] args)
+        {
+
+            int result = Sum(20, 40);
+            Console.WriteLine($"The sum of 20 and 40 is {result}");
+        }
+-
+// Sum() method that takes three integer arguments and sums them
+// and then returns the value
+// This method uses the same name as the Sum() method that takes two integers
+// but the parameters here indicate the method is expecting three integers as arguments
+// The compiler knows which method to call based on the number of arguments passed in
+static int Sum(int first, int second, int third)
+{
+    int sum = first + second + third;
+    return sum;
+}
+-
+// Sum() method that takes two doubles as arguments
+// This method uses the same name as the Sum() method that takes two integers
+// but the parameters here indicate the method is expecting two doubles as arguments
+// The compiler knows which method to call based on the arguments data types
+static double Sum(double first, double second)
+{
+    double result = first + second;
+    return result;
+}
+-
+static void Main(string[] args)
+{
+
+    int result = Sum(20, 40);
+    Console.WriteLine($"Calling Sum() with two arguments, result is: {result}");
+
+    int result3 = Sum(10, 50, 80);
+    Console.WriteLine($"Calling Sum() with three arguments, result is: {result3}");
+
+    double dblResult = Sum(20.5, 30.6);
+    Console.WriteLine($"Calling Sum() that takes doubles result in: {dblResult}");
+}
